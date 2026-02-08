@@ -143,7 +143,8 @@ def create_interface():
     # Interface state elements
     shared.input_elements = ui.list_interface_input_elements()
 
-    with gr.Blocks(css=css, analytics_enabled=False, title=title, theme=ui.theme) as shared.gradio['interface']:
+    theme_kwargs = {"theme": ui.theme} if ui.theme else {}
+    with gr.Blocks(css=css, analytics_enabled=False, title=title, **theme_kwargs) as shared.gradio:
 
         # Interface state
         shared.gradio['interface_state'] = gr.State({k: None for k in shared.input_elements})
