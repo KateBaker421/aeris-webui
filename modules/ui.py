@@ -47,21 +47,27 @@ refresh_symbol = '🔄'
 delete_symbol = '🗑️'
 save_symbol = '💾'
 
-theme = gr.themes.Default(
-    font=['Noto Sans', 'Helvetica', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-    font_mono=['IBM Plex Mono', 'ui-monospace', 'Consolas', 'monospace'],
-).set(
-    border_color_primary='#c5c5d2',
-    button_large_padding='6px 12px',
-    body_text_color_subdued='#484848',
-    background_fill_secondary='#eaeaea',
-    background_fill_primary='var(--neutral-50)',
-    body_background_fill="white",
-    block_background_fill="#f4f4f4",
-    body_text_color="#333",
-    button_secondary_background_fill="#f4f4f4",
-    button_secondary_border_color="var(--border-color-primary)"
-)
+# theme = gr.themes.Default(
+#     font=["Noto Sans", "Helvetica", "ui-sans-serif", "system-ui", "sans-serif"]
+# )
+
+ttheme = None  # fallback if gr.themes isn't available
+
+if theme:
+    theme = theme.set(
+        font_mono=['IBM Plex Mono', 'ui-monospace', 'Consolas', 'monospace'],
+    ).set(
+        border_color_primary="#c5c5d2",
+        button_large_padding="6px 12px",
+        body_text_color_subdued="#484848",
+        background_fill_secondary="#eaeaea",
+        background_fill_primary="var(--neutral-50)",
+        body_background_fill="white",
+        block_background_fill="#f4f4f4",
+        body_text_color="#333",
+        button_secondary_background_fill="#f4f4f4",
+        button_secondary_border_color="var(--border-color-primary)"
+    )
 
 if not shared.args.old_colors:
     theme = theme.set(
